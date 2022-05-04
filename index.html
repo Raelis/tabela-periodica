@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Periodic Table</title>
+        <meta name="description" content="Tabela periódica para web - inspirado em https://github.com/aarjithn/periodic-table">
+        <meta name="keywords" content="Tabela periódica">
+        <meta name="author" content="Israel Rodrigues e Franco DelfinoAarjith Nandakumar">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+
+        <script>
+        function myFunction() {
+            elem = document.getElementById('specimg');
+            elem.width = Math.max(0, (($("#table").width() - 640) / 2) + $(window).scrollLeft());
+        }
+        </script>
+    </head>
+
+    <body>
+        <header class="pane-header">Tabela periódica</header>
+
+        <section class="backdrop"></section>
+
+        <section id="table"></section>
+
+
+        <footer>
+            Baseado na tabela periódica feita por Aarjith Nandakumar (<a target="_blank" href="https://aarjithn.github.io">aarjithn</a>)
+        </footer>
+
+
+        <script id="table-template" type="text/x-handlebars-template">
+            {{#each elements}}
+                <div class="element {{classify category}}" style="left: {{coordinatePos xpos}}px; top: {{coordinatePos ypos}}px;">
+                    <span class="number">{{number}}</span>
+                    <span class="symbol">{{symbol}}</span>
+                    <span class="name">{{name}}</span>
+
+                    <div class="details">
+
+                        <div class="details-close">
+                            <button class="close">×</button>
+                        </div>
+
+                        <div class="details-info">
+                            <p class="summary" style="text-align: justify;">{{summary}}</p>
+                        </div>
+
+                        <div class="details-row">
+
+                            <div class="appearance measure">
+                                <span class="label">Aparência</span>
+                                <span class="value">{{checkEmpty appearance}}</span>
+                            </div>
+
+                        </div>
+
+                        <div class="details-row">
+
+                            <div class="discovery measure">
+                                <span class="label">Descoberto por</span>
+                                <span class="value">{{checkEmpty discovered_by}}</span>
+                            </div>
+
+                            <div class="category measure">
+                                <span class="label">Categoria</span>
+                                <span class="value">{{category}}</span>
+                            </div>
+
+                            <div class="phase measure">
+                                <span class="label">Fase (CNTP)</span>
+                                <span class="value">{{phase}}</span>
+                            </div>
+
+                        </div>
+
+                        <div class="details-row">
+
+                            <div class="atomic_mass measure">
+                                <span class="label">Massa Atômica (u)</span>
+                                <span class="value count">{{checkEmpty atomic_mass}}</span>
+                            </div>
+
+                            <div class="density measure">
+                                <span class="label">Densidade (g/L)</span>
+                                <span class="value count">{{checkEmpty density}}</span>
+                            </div>
+
+                            <div class="boil measure">
+                                <span class="label">Ponto de Ebulição (K)</span>
+                                <span class="value count">{{checkEmpty boil}}</span>
+                            </div>
+
+                            <div class="melt measure">
+                                <span class="label">Ponto de Fusão (K)</span>
+                                <span class="value count">{{checkEmpty melt}}</span>
+                            </div>
+
+                        </div>
+
+                        <div class="details-row" style="position: relative; margin-top: 10px; justify-content: center;">
+
+                            <div class="espectro">
+                                <span class="label">Imagem espectral do elemento</span>
+                                <figure>
+                                  <img id="specimg" src="{{checkEmpty spectral_img}}" onload="myFunction()">
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="details-row">
+
+                            <div class="wiki measure">
+                                <span class="label">Leia mais na <a class="link" target="_blank" href="{{source}}">Wikipedia</a></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            {{/each}}
+        </script>
+
+        <script src="js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="js/vendor/handlebars.min.js"></script>
+        <script src="js/vendor/velocity.min.js"></script>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
