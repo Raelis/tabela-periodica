@@ -91,7 +91,7 @@ jQuery.fn.center = function () {
   $(this).
     velocity({
       width: 640,
-      height: 600,
+      height: 700,
       translateX: left - +origLeft,
       translateY: top - +origTop,
       translateZ: 0      
