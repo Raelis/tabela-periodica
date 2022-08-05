@@ -111,7 +111,7 @@ jQuery.fn.center = function () {
 
 function countTo ($el) {
   $el.find('.count').each(function () {
-      if($(this).text() === 'Unknown') return;
+      if($(this).text() === '?') return;
       $(this).prop('Counter', 0).animate({
           Counter: $(this).text()
       }, {
