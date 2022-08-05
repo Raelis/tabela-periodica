@@ -18,8 +18,10 @@
 
         <script>
         function myFunction() {
-            elem = document.getElementById('specimg');
-            elem.width = Math.max(0, (($("#table").width() - 640) / 2) + $(window).scrollLeft());
+            const elem = document.getElementsByClassName('specimg');
+            for (let i = 0; i < elem.length; i++) {
+                elem[i].width = Math.max(0, (($("#table").width() - 640) / 2) + $(window).scrollLeft());
+            }
         }
         </script>
     </head>
@@ -111,7 +113,7 @@
                             <div class="espectro">
                                 <span class="label">Imagem espectral do elemento</span>
                                 <figure>
-                                  <img id="specimg" src="{{checkEmpty spectral_img}}" onload="myFunction()">
+                                  <img class="specimg" src="{{checkEmpty spectral_img}}" onload="myFunction()">
                                 </figure>
                             </div>
                         </div>
