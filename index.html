@@ -21,7 +21,7 @@
             const elem = document.getElementsByClassName('specimg');
             const elem2 = document.getElementsByClassName('espectro');
             for (let i = 0; i < elem.length; i++) {
-                if(elem[i].getAttribute("src") == "Unknown") {
+                if(elem[i].getAttribute("src") == "?") {
                     elem2[i].setAttribute("hidden", "true");
                 } else {
                     elem[i].width = Math.max(0, (($("#table").width() - 640) / 2) + $(window).scrollLeft());
