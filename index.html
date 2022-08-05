@@ -31,7 +31,7 @@
         </script>
     </head>
 
-    <body onload="myFunction()">
+    <body>
         <header class="pane-header">Tabela periódica</header>
 
         <section class="backdrop"></section>
@@ -44,7 +44,7 @@
         </footer>
 
 
-        <script id="table-template" type="text/x-handlebars-template">
+        <script id="table-template" type="text/x-handlebars-template" onload="myFunction()">
             {{#each elements}}
                 <div class="element {{classify category}}" style="left: {{coordinatePos xpos}}px; top: {{coordinatePos ypos}}px;">
                     <span class="number">{{number}}</span>
