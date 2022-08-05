@@ -19,25 +19,19 @@
         <script>
         function myFunction() {
             const elem = document.getElementsByClassName('specimg');
-            for (let i = 0; i < elem.length; i++) {
-                elem[i].width = Math.max(0, (($("#table").width() - 640) / 2) + $(window).scrollLeft());
-            }
-        }
-        </script>
-        <script>
-        function myFunction2() {
-            const elem = document.getElementsByClassName('specimg');
             const elem2 = document.getElementsByClassName('espectro');
             for (let i = 0; i < elem.length; i++) {
                 if(elem[i].getAttribute("src") == "Unknown") {
                     elem2[i].setAttribute("hidden", "true");
+                } else {
+                    elem[i].width = Math.max(0, (($("#table").width() - 640) / 2) + $(window).scrollLeft());
                 }
             }
         }
         </script>
     </head>
 
-    <body>
+    <body onload="myFunction()">
         <header class="pane-header">Tabela periódica</header>
 
         <section class="backdrop"></section>
@@ -124,7 +118,7 @@
                             <div class="espectro">
                                 <span class="label">Imagem espectral do elemento</span>
                                 <figure>
-                                  <img class="specimg" src="{{checkEmpty spectral_img}}" onload="myFunction()">
+                                  <img class="specimg" src="{{checkEmpty spectral_img}}">
                                 </figure>
                             </div>
                         </div>
