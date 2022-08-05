@@ -75,7 +75,7 @@ Handlebars.registerHelper("classify", function(str) {
 });
 
 Handlebars.registerHelper("checkEmpty", function(val) {
-    if(val === null) return "Unknown";
+    if(val === null) return "?";
     return val;
 });
 
